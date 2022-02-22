@@ -2692,7 +2692,7 @@ img.u-pull-left {
 }
 
 .text-huge-title {
-    --text-huge : 10.8rem;
+    --text-huge : 6.8rem;
     font-size   : var(--text-huge);
     line-height : 1.0740;
     margin-top  : 0;
@@ -2953,7 +2953,7 @@ img.u-pull-left {
 .mobile-home-link a,
 .main-nav a {
     display             : block;
-    font-size           : 15px;
+    font-size           : 10px;
     font-weight         : 400;
     line-height         : var(--header-height);
     text-transform      : uppercase;

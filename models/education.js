@@ -7,6 +7,7 @@ const education_Schema=new Schema({
     degree:{ type:String,required:true},
     description:{ type:String,required:true},
     date:{type:Date,required:true}
+   
 });
 
 const education=mongoose.model("education",education_Schema);

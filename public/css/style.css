@@ -44,7 +44,7 @@ body {
     color: #000;
     padding: 1rem;
     border: none;
-    font-size:0.75rem;
+    font-size:0.5rem;
     margin: 1rem;
 }
 
@@ -57,7 +57,7 @@ input
     color: #000;
     padding: 1rem;
     border: none;
-    font-size:0.75rem;
+    font-size:0.5rem;
 margin: 1rem;
 }
 
@@ -69,7 +69,7 @@ margin: 1rem;
 
     border: none;
     
-    font-size:1.5rem;
+    font-size:1rem;
    
 }
 .ssubmit:hover
@@ -80,7 +80,7 @@ margin: 1rem;
 
 .divv
 {
-    font-size: larger;
+
     padding: 1rem;
     background-color: rgba(0, 0, 0, 0.7);
     color:rgb(255, 252, 220) ;
@@ -91,7 +91,7 @@ margin: 1rem;
 }
 
 .divv p
-{ font-size: larger;
+{ 
    padding: 1rem;
     color:rgb(255, 255, 255) ;
    
@@ -107,7 +107,7 @@ margin: 1rem;
 table td,table tr
 {
     padding: 1rem;
-    font-size: larger;
+  
     color:rgb(255, 251, 208) ;
 }
 
@@ -244,7 +244,7 @@ nav a {
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: capitalize;
-    font-size: 17px;
+    font-size: 13px;
     opacity: 0.5;
 }
 
@@ -361,7 +361,7 @@ li > a:only-child:after {
         width: 80%;
         padding: 5px;
         font-weight: normal;
-        font-size: 16px;
+        font-size: 11px;
         letter-spacing: 1px;
     }
 
@@ -405,7 +405,7 @@ li > a:only-child:after {
     nav ul ul ul a {
         padding: 14px 20px;
         color: #FFF;
-        font-size: 17px;
+        font-size: 11px;
     }
 
 
@@ -456,7 +456,7 @@ li > a:only-child:after {
 }
 .sidenav {
 	height: 100%;
-	width:400px;
+	width:360px;
 	position: fixed;
 	top: 0;
 	right: 0;

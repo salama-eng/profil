@@ -11,9 +11,9 @@ const work = require("./models/work");
 const experiance = require("./models/experiance");
 const indexRouter = require('./routes/index');
 
-
 app.use(express.urlencoded());
-app.set('views', path.join(__dirname, 'views'));
+
+
 
 // view engine setup
 app.set('view engine', 'ejs');

@@ -6,7 +6,8 @@
   "main": "app.js",
   "scripts": {
     "eslint": "./node_modules/eslint/bin/eslint.js --max-warnings 0 --ext .js .",
-    "start": "node ./bin/start"
+    "start": "node ./bin/start",
+    "dev": "nodemon ./bin/start"
   },
   "dependencies": {
     "cookie-parser": "^1.4.6",
@@ -16,7 +17,8 @@
     "http-errors": "^2.0.0",
     "mongoose": "^6.2.2",
     "morgan": "^1.10.0",
-    "multer": "^1.4.4"
+    "multer": "^1.4.4",
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
