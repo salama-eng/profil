@@ -5,6 +5,7 @@ const { default: mongoose } = require("mongoose");
 const multer = require("multer");
 const education = require("../models/education");
 const experiance = require("../models/experiance");
+const paragraph = require("../models/paragraph");
 const work = require("../models/work");
 const router = Router();
 
@@ -78,6 +79,27 @@ const upload = multer({
 
 /****************  uploading process ***************** */
 
+
+/***********************PARAGRAPH ********************* */
+
+router.get("/paragraph", (req, res) => {
+  paragraph.find().then((reslut) => {
+    res.render("paragraph", {
+      paragraph: reslut
+    });
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
 /**********Listing education********* */
 router.get("/education", (req, res) => {
   education.find().then((reslut) => {
@@ -87,35 +109,35 @@ router.get("/education", (req, res) => {
   });
 });
 
+
+router.get('/delete_education/:id', function(req, res, next) {	
+	education.deleteOne({"_id": req.params.id}, function(err, result) {
+		res.redirect('/education')
+	})
+})
+
 /*******************/
 
 router.post("/edite_education", async (req, res) => {
-  const { s_name } = req.body;
- const { model_id } = req.body.model_id;
- console.log(model_id);
-  let result = education.updateOne(
-    {model_id:s_name} ,
-    {
-      description: req.body.description,
-      degree: req.body.degree,
-      date: req.body.date,
-      s_name: req.body.s_name
-   
-    }, (err, data) => {
-      console.log(err, data)
-    }
-  );
-  education.find({ s_name }).then(i => console.log(i));
-  console.log(req.body);
-  // console.log(result);
-  res.redirect("/education");
+var add_educaton={
+  s_name: req.body.s_name,
+  degree: req.body.degree,
+  date: req.body.date,
+  description: req.body.description,
+}  
+var id =req.body.id;
+education.updateOne({"_id":id},{$set:add_educaton},function(err,reslut)
+{
+
+  console.log("updated");
+
+})
+res.redirect('/education');
 });
 
 /*************** ADD education ******************* */
 
-router.get("/add/education", auth, (req, res) => {
-  res.render("education");
-});
+
 
 router.post("/add_education", (req, res) => {
   // console.log(req.file.filename);
@@ -128,15 +150,15 @@ router.post("/add_education", (req, res) => {
     description: req.body.description,
   });
   edu.save((error, result) => {
-    // if (error)
-    //   // console.log(error.message);
-    // else {
-    //   // console.log(result);
-    // }
+     if (error)
+    console.log(error.message);
+   else {
+  console.log(result);
+    }
   });
 
   console.log("data inserted successful");
-  res.render("education");
+  res.redirect("/education");
   res.end();
 });
 
@@ -177,12 +199,9 @@ router.post("/add_experiance", (req, res) => {
 
 /********  ADD work ********  */
 
-router.get("/add_work", auth, (req, res) => {
-  res.render("work");
-});
 
 router.post("/add_work", upload.single("img"), (req, res) => {
-  console.log(req.file);
+
 
   const work_add = new work({
     project_title: req.body.project_title,
@@ -197,8 +216,58 @@ router.post("/add_work", upload.single("img"), (req, res) => {
   });
 
   console.log("data inserted successful");
+  res.redirect('/work');
   res.end();
 });
+
+
+
+router.get('/delete_work/:id', function(req, res, next) {	
+	work.deleteOne({"_id": req.params.id}, function(err, result) {
+		res.redirect('/work')
+	})
+})
+
+
+
+
+/*************Editing work *********** */
+
+router.post("/edite_work", upload.single("img"), (req, res) => {
+  console.log("updated");
+  var item={
+    project_title: req.body.project_title,
+    project_name: req.body.project_name,
+    img:req.file.img,
+   
+  }  
+  
+  var id =req.body.id;
+ 
+  work.updateOne({"_id":id},{$set:item},function(err,reslut)
+  {
+  
+    console.log("updated");
+  
+  })
+  res.redirect('/work');
+  });
+  
+
+
+
+/*******listing work************ */
+router.get("/work", (req, res) => {
+  work.find().then((reslut) => {
+    res.render("work", {
+      work: reslut
+    });
+  });
+});
+
+
+
+
 
 /*************************** */
 
@@ -219,10 +288,7 @@ router.get("/experiance", (req, res) => {
   res.end();
 });
 
-router.get("/work", (req, res) => {
-  res.render("work");
-  res.end();
-});
+
 
 router.get("/skills", (req, res) => {
   res.render("skills");

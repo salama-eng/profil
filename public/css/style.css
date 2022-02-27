@@ -107,7 +107,7 @@ margin: 1rem;
 table td,table tr
 {
     padding: 1rem;
-  
+  font-size: 0.8rem;
     color:rgb(255, 251, 208) ;
 }
 
@@ -173,7 +173,7 @@ body a:focus {
     padding: 2em 1em;
 }
 nav ul li {
-    padding: 0.5rem;
+    padding: 0.3rem;
 }
 /*-- header --*/
 
